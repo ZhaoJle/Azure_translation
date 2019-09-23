@@ -1,0 +1,101 @@
+<html>
+
+<head>
+    <title>Bootstrap 导航</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Translate and analyze text with Azure Cognitive Services.">
+   
+    <nav class="navbar navbar-inverse" role="navigation">
+       
+            <ul class="nav navbar-nav">                    
+                <li>
+                    <a href="/translate">文本翻译</a>
+                </li>
+                <li>
+                        <a href="/sentiment">情感分析</a>
+                    </li>
+                <li>
+                    <a href="/synthesize">语音服务</a>
+                </li>
+            </ul>
+           
+    </nav>
+
+</head>
+
+<body>
+    <title>文本翻译服务</title>
+    <div class="container">
+            <h1>文本翻译服务</h1>
+            <p>这个web app使用azure的文本翻译和语音服务，更多关于azure上的api请访问:<a href="https://docs.microsoft.com/azure/cognitive-services/">Azure Cognitive Services</a>.
+            </p>
+            <div class="row">
+                <div class="col">
+                        <form>
+                                <!-- Enter text to translate. -->
+                                <div class="form-group">
+                                  <label for="text-to-translate"><strong>请输入密钥</strong></label>
+                                  <textarea class="form-control" id="text-to-translate" rows="1"></textarea>
+                                </div>
+                        </form>
+                </div>
+              <div class="col">
+              <form>
+                  <!-- Enter text to translate. -->
+                  <div class="form-group">
+                    <label for="text-to-translate"><strong>请输入要翻译的文本</strong></label>
+                    <textarea class="form-control" id="text-to-translate" rows="5"></textarea>
+                  </div>
+                  <!-- Select output language here. -->
+                  <div class="form-group">
+                    <label for="select-language"><strong>请输入翻译的语言</strong></label>
+                    <select class="form-control" id="select-language">
+                      <option value="zh-Hans">Chinese (Simplified)</option>
+                      <option value="zh-Hant">Chinese (Traditional)</option>
+                      <option value="hr">Croatian</option>
+                      <option value="en">English</option>
+                      <option value="fr">French</option>
+                      <option value="de">German</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-primary mb-2" id="translate">翻译</button></br>
+                  <div id="detected-language" style="display: none">
+                    <strong>Detected language:</strong> <span id="detected-language-result"></span><br />
+                    <strong>Detection confidence:</strong> <span id="confidence"></span><br /><br />
+                  </div>
+                  <div id="sentiment" style="display: none">
+                    <p>Sentiment scores are provided on a 1 point scale. The closer the sentiment score is to 1, indicates positive sentiment. The closer it is to 0, indicates negative sentiment.</p>
+                    <strong>Sentiment score for input:</strong> <span id="input-sentiment"></span><br />
+                    <strong>Sentiment score for translation:</strong> <span id="translation-sentiment"></span>
+                  </div>
+                </form>
+                <!-- Translated text returned by the Translate API is rendered here. -->
+              </div>
+              <div class="col">
+                <form>
+                  <div class="form-group" id="translator-text-response">
+                    <label for="translation-result"><strong>翻译结果:</strong></label>
+                    <textarea readonly class="form-control" id="translation-result" rows="5"></textarea>
+                  </div>
+                </form>
+                  <audio id="audio" controls>
+                    <source id="audio-source" type="audio/mpeg" />
+                  </audio>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+    <!-- Required JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type = "text/javascript" src ="static/scripts/main.js"></script>
+</body>
+
+</html>

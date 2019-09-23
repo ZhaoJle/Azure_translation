@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <title>Bootstrap 导航</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Translate and analyze text with Azure Cognitive Services.">
+   
+    <nav class="navbar navbar-inverse" role="navigation">
+       
+            <ul class="nav navbar-nav">                    
+                <li>
+                    <a href="/translate">文本翻译</a>
+                </li>
+                <li>
+                    <a href="/sentiment">情感分析</a>
+                </li>
+                <li>
+                    <a href="/synthesize">语音服务</a>
+                </li>
+                
+            </ul>
+           
+    </nav>
+
+</head>
+
+<body>
+    <title>情绪分析服务</title>
+    <div class="container">
+            <h1>情绪分析服务</h1>
+            <p>这个web app使用azure的文本翻译和语音服务，更多关于azure上的api请访问:<a href="https://docs.microsoft.com/azure/cognitive-services/">Azure Cognitive Services</a>.
+            </p>
+            <div class="row">
+                <div class="col">
+                        <form>
+                                <!-- Enter text to translate. -->
+                                <div class="form-group">
+                                  <label for="text-to-translate"><strong>请输入密钥</strong></label>
+                                  <textarea class="form-control" id="text-to-translate" rows="1"></textarea>
+                                </div>
+                        </form>
+                </div>
+              <div class="col">
+              <form>
+                  <!-- Enter text to translate. -->
+                  <div class="form-group">
+                    <label for="text-to-translate"><strong>请输入要分析的文本</strong></label>
+                    <textarea class="form-control" id="text-to-translate" rows="5"></textarea>
+                  </div>
+                  <div id="detected-language" style="display: none">
+                    <strong>Detected language:</strong> <span id="detected-language-result"></span><br />
+                    <strong>Detection confidence:</strong> <span id="confidence"></span><br /><br />
+                  </div>
+                  <div id="sentiment">
+                    <button type="submit" class="btn btn-primary mb-2" id="sentiment-analysis">分析</button></br>
+                    <p>满分为1. 越接近1, 情绪越积极. 越接近0, 情绪越消极.</p>
+                    <strong>得分:</strong> <span id="input-sentiment"></span><br />
+                  </div>
+                </form>
+                <!-- Translated text returned by the Translate API is rendered here. -->
+              </div>
+              </div>
+            </div>
+          </div>
+</body>
+
+</html>
